@@ -178,3 +178,21 @@ body {
     if (!wei || wei === '0') return '0';
     var s = wei.replace(/^0+/, '') || '0';
     if (s.length <= 18) return '0.' + s.padStart(18, '0').slice(-18).replace(/0+$/, '') || '0';
+    var intPart = s.slice(0, -18) || '0';
+    var decPart = s.slice(-18).replace(/0+$/, '') || '';
+    return decPart ? intPart + '.' + decPart : intPart;
+  }
+
+  function loadTokenInfo() {
+    if (!CONTRACT_ADDRESS || !window.ethereum) {
+      contractAddrEl.textContent = CONTRACT_ADDRESS || 'Set CONTRACT_ADDRESS and connect to a chain with the contract.';
+      nameEl.textContent = 'TrumpGold';
+      symbolEl.textContent = 'TGOLD';
+      decimalsEl.textContent = '18';
+      capEl.textContent = '888,888,888 TGOLD';
+      return;
+    }
+    contractAddrEl.textContent = CONTRACT_ADDRESS;
+    var provider = new ethers.BrowserProvider(window.ethereum);
+    var contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
+    contract.AURUM_NAME().then(function (n) { nameEl.textContent = n; }).catch(function () { nameEl.textContent = 'TrumpGold'; });
