@@ -160,3 +160,21 @@ body {
     { inputs: [], name: 'totalSupply', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
     { inputs: [], name: 'AURUM_NAME', outputs: [{ name: '', type: 'string' }], stateMutability: 'view', type: 'function' },
     { inputs: [], name: 'AURUM_SYMBOL', outputs: [{ name: '', type: 'string' }], stateMutability: 'view', type: 'function' },
+    { inputs: [], name: 'AURUM_DECIMALS', outputs: [{ name: '', type: 'uint8' }], stateMutability: 'view', type: 'function' },
+    { inputs: [], name: 'CAP_WEI', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' }
+  ];
+
+  var contractAddrEl = document.getElementById('contract-addr');
+  var nameEl = document.getElementById('name');
+  var symbolEl = document.getElementById('symbol');
+  var decimalsEl = document.getElementById('decimals');
+  var capEl = document.getElementById('cap');
+  var balanceMsg = document.getElementById('balance-msg');
+  var balanceVal = document.getElementById('balance-value');
+  var connectBtn = document.getElementById('connect');
+  var refreshBtn = document.getElementById('refresh');
+
+  function formatWei(wei) {
+    if (!wei || wei === '0') return '0';
+    var s = wei.replace(/^0+/, '') || '0';
+    if (s.length <= 18) return '0.' + s.padStart(18, '0').slice(-18).replace(/0+$/, '') || '0';
