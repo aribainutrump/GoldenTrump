@@ -70,3 +70,21 @@ body {
 }
 .stat { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.95rem; }
 .stat:last-child { margin-bottom: 0; }
+.stat span:first-child { color: var(--muted); }
+.stat span:last-child { color: var(--text); font-weight: 600; }
+.address { font-family: monospace; font-size: 0.8rem; word-break: break-all; color: var(--muted); }
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 8px;
+  color: #0c0a06;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: filter 0.2s, transform 0.1s;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:active { transform: scale(0.98); }
