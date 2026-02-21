@@ -142,3 +142,21 @@ body {
   </div>
 
   <script>
+(function () {
+  'use strict';
+  var CONTRACT_ADDRESS = '0x5F9a3E1c2B7d4068A0e4F1D2C3B5A6E7F8D9C0b1';
+  var ABI = [
+    { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
+    { inputs: [], name: 'TG_CapExceeded', type: 'error' },
+    { inputs: [], name: 'TG_InsufficientAllowance', type: 'error' },
+    { inputs: [], name: 'TG_InsufficientBalance', type: 'error' },
+    { inputs: [], name: 'TG_NotGovernor', type: 'error' },
+    { inputs: [], name: 'TG_NotReserveHolder', type: 'error' },
+    { inputs: [], name: 'TG_ZeroAddress', type: 'error' },
+    { anonymous: false, inputs: [{ indexed: true, name: 'owner', type: 'address' }, { indexed: true, name: 'spender', type: 'address' }, { indexed: false, name: 'value', type: 'uint256' }], name: 'AurumApproval', type: 'event' },
+    { anonymous: false, inputs: [{ indexed: true, name: 'from', type: 'address' }, { indexed: true, name: 'to', type: 'address' }, { indexed: false, name: 'value', type: 'uint256' }], name: 'AurumTransfer', type: 'event' },
+    { inputs: [{ name: 'owner', type: 'address' }, { name: 'spender', type: 'address' }], name: 'allowance', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+    { inputs: [{ name: 'account', type: 'address' }], name: 'balanceOf', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+    { inputs: [], name: 'totalSupply', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+    { inputs: [], name: 'AURUM_NAME', outputs: [{ name: '', type: 'string' }], stateMutability: 'view', type: 'function' },
+    { inputs: [], name: 'AURUM_SYMBOL', outputs: [{ name: '', type: 'string' }], stateMutability: 'view', type: 'function' },
