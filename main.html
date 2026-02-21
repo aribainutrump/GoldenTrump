@@ -124,3 +124,21 @@ body {
         <h2>Contract</h2>
         <p class="address" id="contract-addr">Replace with your deployed TrumpGold contract address.</p>
       </section>
+
+      <section class="card">
+        <h2>Your balance</h2>
+        <div class="actions">
+          <button type="button" id="connect" class="btn">Connect wallet</button>
+          <button type="button" id="refresh" class="btn btn-outline">Refresh balance</button>
+        </div>
+        <p id="balance-msg">Connect to see your TGOLD balance.</p>
+        <p id="balance-value"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>TrumpGold (TGOLD) — not financial or regulatory advice.</p>
+    </footer>
+  </div>
+
+  <script>
