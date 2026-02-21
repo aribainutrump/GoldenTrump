@@ -88,3 +88,21 @@ body {
 }
 .btn:hover { filter: brightness(1.1); }
 .btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.actions { margin-top: 1rem; }
+#balance-msg { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+#balance-value { color: var(--gold); font-weight: 700; }
+.footer { text-align: center; margin-top: auto; padding-top: 2rem; color: var(--muted); font-size: 0.8rem; }
+.footer p { margin: 0 0 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
