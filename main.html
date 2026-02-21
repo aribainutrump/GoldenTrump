@@ -196,3 +196,21 @@ body {
     var provider = new ethers.BrowserProvider(window.ethereum);
     var contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
     contract.AURUM_NAME().then(function (n) { nameEl.textContent = n; }).catch(function () { nameEl.textContent = 'TrumpGold'; });
+    contract.AURUM_SYMBOL().then(function (s) { symbolEl.textContent = s; }).catch(function () { symbolEl.textContent = 'TGOLD'; });
+    contract.AURUM_DECIMALS().then(function (d) { decimalsEl.textContent = String(d); }).catch(function () { decimalsEl.textContent = '18'; });
+    contract.CAP_WEI().then(function (c) {
+      capEl.textContent = formatWei(c.toString()) + ' TGOLD';
+    }).catch(function () { capEl.textContent = '888,888,888 TGOLD'; });
+  }
+
+  function askAccounts() {
+    if (!window.ethereum) {
+      balanceMsg.textContent = 'No wallet found. Install MetaMask or another Web3 wallet.';
+      balanceVal.textContent = '';
+      return;
+    }
+    window.ethereum.request({ method: 'eth_requestAccounts' }).then(function (accounts) {
+      if (!accounts.length) {
+        balanceMsg.textContent = 'No account selected.';
+        balanceVal.textContent = '';
+        return;
